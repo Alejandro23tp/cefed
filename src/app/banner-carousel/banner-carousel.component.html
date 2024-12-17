@@ -1,0 +1,69 @@
+<section class="relative bg-gray-100 dark:bg-gray-900">
+    <div class="relative max-w-screen-xl mx-auto">
+        <div id="bannerCarousel" class="relative overflow-hidden rounded-lg">
+            <!-- Slide 1 -->
+            <div class="relative">
+                <img src="/imagenes/banner1HD.jpg" alt="Banner 1" class="w-full h-96 object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <div class="text-center text-white">
+                        <h2 class="text-3xl font-extrabold">Centro Evangelístico Fe en Dios</h2>
+                        <p class="mt-2">"Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito..." - Juan 3:16</p>
+                        <a href="#" class="mt-4 inline-block bg-primary-600 hover:bg-primary-700 text-white font-medium px-4 py-2 rounded-lg">Más Información</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="hidden relative">
+                <img src="/imagenes/banner2HD.jpg" alt="Banner 2" class="w-full h-96 object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <div class="text-center text-white">
+                        <h2 class="text-3xl font-extrabold">Nuestra Misión</h2>
+                        <p class="mt-2">"Id por todo el mundo y predicad el evangelio a toda criatura." - Marcos 16:15</p>
+                        <a href="#" class="mt-4 inline-block bg-primary-600 hover:bg-primary-700 text-white font-medium px-4 py-2 rounded-lg">Únete a Nosotros</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="hidden relative">
+                <img src="/imagenes/banner3HD.jpg" alt="Banner 3" class="w-full h-96 object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <div class="text-center text-white">
+                        <h2 class="text-3xl font-extrabold">Conéctate y Crece</h2>
+                        <p class="mt-2">"Creciendo en el conocimiento de Dios, fortalecidos con todo poder..." - Colosenses 1:10-11</p>
+                        <a href="#" class="mt-4 inline-block bg-primary-600 hover:bg-primary-700 text-white font-medium px-4 py-2 rounded-lg">Aprende Más</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 4 -->
+            <div class="hidden relative">
+                <img src="/imagenes/banner4.2.1HD.jpg" alt="Banner 4" class="w-full h-96 object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <div class="text-center text-white">
+                        <h2 class="text-3xl font-extrabold">Sé Parte de Nuestra Familia</h2>
+                        <p class="mt-2">"Mirad cuán bueno y cuán delicioso es habitar los hermanos juntos en armonía." - Salmo 133:1</p>
+                        <a href="#" class="mt-4 inline-block bg-primary-600 hover:bg-primary-700 text-white font-medium px-4 py-2 rounded-lg">Únete Ahora</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 5 (logo) -->
+            <div class="hidden relative" style="background-color: #f7f7f7;">
+                <img src="/imagenes/fe.png" alt="Logo" class="w-auto h-auto max-w-xs max-h-xs object-contain mx-auto">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <div class="text-center text-white">
+                        <h2 class="text-3xl font-extrabold">Centro Evangelístico Fe en Dios</h2>
+                        <p class="mt-2">"Y la fe es por el oír, y el oír, por la palabra de Dios." - Romanos 10:17</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Puntos de Navegación -->
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+            <button (click)="onDotClick(0)" class="w-3 h-3 bg-white rounded-full focus:outline-none" [class.bg-white]="currentIndex === 0" [class.bg-gray-400]="currentIndex !== 0"></button>
+            <button (click)="onDotClick(1)" class="w-3 h-3 bg-gray-400 rounded-full focus:outline-none" [class.bg-white]="currentIndex === 1" [class.bg-gray-400]="currentIndex !== 1"></button>
+            <button (click)="onDotClick(2)" class="w-3 h-3 bg-gray-400 rounded-full focus:outline-none" [class.bg-white]="currentIndex === 2" [class.bg-gray-400]="currentIndex !== 2"></button>
+            <button (click)="onDotClick(3)" class="w-3 h-3 bg-gray-400 rounded-full focus:outline-none" [class.bg-white]="currentIndex === 3" [class.bg-gray-400]="currentIndex !== 3"></button>
+            <button (click)="onDotClick(4)" class="w-3 h-3 bg-gray-400 rounded-full focus:outline-none" [class.bg-white]="currentIndex === 4" [class.bg-gray-400]="currentIndex !== 4"></button>
+        </div>
+    </div>
+</section>

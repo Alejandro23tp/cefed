@@ -1,0 +1,90 @@
+<section class="relative bg-gradient-to-b from-black via-gray-900 to-gray-800 py-5">
+    <div class="max-w-screen-xl mx-auto px-4 text-center">
+        <!-- Título -->
+        <h2 class="text-2xl font-extrabold mb-6 tracking-tight text-white hover:text-blue-800 transition-all duration-500">
+            ¿Quiénes Somos?
+        </h2>        
+
+        <!-- Carrusel (sin cambios) -->
+        <div class="relative overflow-hidden rounded-xl shadow-2xl mt-12">
+            <div class="carousel-wrapper flex transition-all duration-700 ease-in-out" [style.transform]="getCarouselTransform()">
+                <div *ngFor="let slide of slides; let i = index"
+                     class="relative flex-shrink-0 w-full h-80 transition-transform duration-700"
+                     [style.transform]="getSlideTransform(i)">
+                    <img [src]="slide.image" [alt]="slide.alt" class="w-full h-full object-cover rounded-lg shadow-xl transform transition-all duration-500 hover:scale-110"/>
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-center">
+                        <h3 class="text-3xl font-semibold text-white">{{ slide.alt }}</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3">
+                <button *ngFor="let dot of slides; let i = index"
+                        (click)="onDotClick(i)"
+                        class="w-4 h-4 rounded-full focus:outline-none transition-all duration-300"
+                        [class.bg-white]="currentIndex === i"
+                        [class.bg-gray-400]="currentIndex !== i"
+                        [class.scale-125]="currentIndex === i">
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="relative bg-gray-800 py-24">
+    <div class="max-w-screen-xl mx-auto px-6 text-center">
+        <!-- Misión -->
+        <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-xl transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500 hover:-translate-y-2">
+            <h3 class="text-2xl font-semibold text-white">Misión</h3>
+            <p class="text-lg text-gray-700 dark:text-gray-300 mt-4">
+                Ganar la Península para Cristo, haciendo de la Iglesia su principal centro de adoración, entrenamiento, confraternidad, restauración y envío.
+            </p>
+        </div>
+
+        <!-- Visión -->
+        <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-xl transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500 hover:-translate-y-2 mt-12">
+            <h3 class="text-2xl font-semibold text-white">Visión</h3>
+            <p class="text-lg text-gray-700 dark:text-gray-300 mt-4">
+                Formar vidas a la imagen de Jesús, equipadas con las herramientas del Espíritu Santo y del discipulado bíblico, para que a su vez, éstas ganen, integren y desarrollen a otros, cumpliendo así la Gran Comisión, a través del modelo de multiplicación celular.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="relative bg-gradient-to-b from-gray-800 via-gray-900 to-black py-16">
+    <div class="max-w-screen-xl mx-auto px-6 text-center">
+        <!-- Título de la sección -->
+        <h2 class="text-2xl font-extrabold mb-6 tracking-tight text-white hover:text-blue-800 transition-all duration-500">
+            Recuerdos de los Primeros Pasos</h2>
+
+        <!-- Cuadro Contenedor para las 4 Imágenes -->
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-xl">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8">
+                <!-- Imagen 1 -->
+                <div class="relative overflow-hidden rounded-lg shadow-lg transform transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-indigo-500 hover:rotate-1">
+                    <img src="/imagenes/inicios.jpg" alt="Inicios de la iglesia" class="w-full h-full object-cover rounded-lg"/>
+                </div>
+
+                <!-- Imagen 2 -->
+                <div class="relative overflow-hidden rounded-lg shadow-lg transform transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-indigo-500 hover:rotate-1">
+                    <img src="/imagenes/inicios2.jpg" alt="Inicios de la iglesia" class="w-full h-full object-cover rounded-lg"/>
+                </div>
+
+                <!-- Imagen 3 -->
+                <div class="relative overflow-hidden rounded-lg shadow-lg transform transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-indigo-500 hover:rotate-1">
+                    <img src="/imagenes/inicios3.jpg" alt="Inicios de la iglesia" class="w-full h-full object-cover rounded-lg"/>
+                </div>
+
+                <!-- Imagen 4 -->
+                <div class="relative overflow-hidden rounded-lg shadow-lg transform transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-indigo-500 hover:rotate-1">
+                    <img src="/imagenes/inicios4.jpg" alt="Inicios de la iglesia" class="w-full h-full object-cover rounded-lg"/>
+                </div>
+            </div>
+        </div>
+
+        <!-- Descripción adicional -->
+        <div class="mt-12 text-lg text-gray-700 dark:text-gray-300">
+            <p>Estas fotos capturan los primeros momentos de nuestra iglesia. ¡Gracias a todos los que han sido parte de este hermoso viaje de fe!</p>
+        </div>
+    </div>
+</section>
