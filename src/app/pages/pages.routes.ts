@@ -27,6 +27,10 @@ export const routes : Routes = [
                 loadComponent: () => import('./damas/damas.component'),
             },
             {
+                path: 'eventos',
+                loadComponent: () => import('./eventos/eventos.component'),
+            },
+            {
                 path: 'contacto',
                 loadComponent: () => import('./contacto/contacto.component'),
             }

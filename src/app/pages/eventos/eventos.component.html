@@ -1,1 +1,136 @@
-<p>eventos works!</p>
+<div class="container mx-auto px-4 py-8">
+  <!-- Banner Principal -->
+  <div class="relative overflow-hidden rounded-xl mb-12 bg-blue-600">
+    <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-90"></div>
+    <div class="relative z-10 px-8 py-16 text-white">
+      <h1 class="text-4xl font-bold mb-4">Eventos y Anuncios</h1>
+      <p class="text-xl">Únete a nuestra comunidad y sé parte de estas experiencias transformadoras</p>
+    </div>
+  </div>
+
+  <!-- Filtros de Categoría -->
+  <div class="flex gap-4 mb-8 overflow-x-auto pb-4">
+    <button
+      *ngFor="let category of categories"
+      (click)="setSelectedCategory(category.id)"
+      class="px-6 py-2 rounded-full transition-all"
+      [ngClass]="{
+        'bg-blue-600 text-white': selectedCategory === category.id,
+        'bg-gray-100 hover:bg-gray-200': selectedCategory !== category.id
+      }"
+    >
+      {{ category.name }}
+    </button>
+  </div>
+
+  <!-- Grid de Eventos -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div 
+      *ngFor="let event of filteredEvents"
+      class="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all"
+    >
+      <div class="relative">
+        <img 
+          [src]="'https://cefedapi-arpx.onrender.com/uploads/images/events/' + event.image"
+          [alt]="event.title"
+          class="w-full h-48 object-cover transition-transform group-hover:scale-105"
+        >
+        <div class="absolute top-4 right-4">
+          <button 
+          class="p-2 bg-white rounded-full shadow-md hover:bg-gray-100"
+          (click)="event.id !== null ? showDeletePassword(event.id) : null"
+          >
+            <i class="fas fa-trash-alt w-5 h-5 text-gray-600"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="p-6">
+        <h3 class="text-xl font-semibold mb-3">{{ event.title }}</h3>
+        <p class="text-gray-600 mb-4">{{ event.description }}</p>
+        
+        <div class="space-y-2">
+          <div class="flex items-center text-gray-500">
+            <i class="fas fa-calendar w-5 h-5 mr-2"></i>
+            <span>{{ event.date }}</span>
+          </div>
+          <div class="flex items-center text-gray-500">
+            <i class="fas fa-clock w-5 h-5 mr-2"></i>
+            <span>{{ event.time }}</span>
+          </div>
+          <div class="flex items-center text-gray-500">
+            <i class="fas fa-map-marker-alt w-5 h-5 mr-2"></i>
+            <span>{{ event.location }}</span>
+          </div>
+        </div>
+
+        <button class="mt-6 w-full flex items-center justify-center gap-2 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+          Más Información
+          <i class="fas fa-chevron-right w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón para Crear Evento -->
+  <div class="mt-8 text-center">
+    <button 
+      (click)="showCreateEventForm()"
+      class="bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700"
+    >
+      Crear Evento
+    </button>
+  </div>
+
+  <!-- Formulario para Crear Evento -->
+  <div *ngIf="showEventForm" class="mt-8">
+    <h2 class="text-2xl font-semibold mb-4">Nuevo Evento</h2>
+    <form (ngSubmit)="createEvent()">
+      <input [(ngModel)]="newEvent.title" name="title" placeholder="Título" class="w-full p-2 mb-4 border rounded-lg" />
+      <input [(ngModel)]="newEvent.date" name="date" type="date" class="w-full p-2 mb-4 border rounded-lg" />
+      <input [(ngModel)]="newEvent.time" name="time" type="time" class="w-full p-2 mb-4 border rounded-lg" />
+       <!-- Categoría del Evento -->
+  <select [(ngModel)]="newEvent.category" name="category" class="w-full p-2 mb-4 border rounded-lg">
+    <option value="" disabled selected>Selecciona una categoría</option>
+    <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
+  </select>
+      <input [(ngModel)]="newEvent.location" name="location" placeholder="Ubicación" class="w-full p-2 mb-4 border rounded-lg" />
+      <textarea [(ngModel)]="newEvent.description" name="description" placeholder="Descripción" class="w-full p-2 mb-4 border rounded-lg"></textarea>
+      <input type="file" (change)="onFileChange($event)" class="w-full mb-4" />
+    
+      <!-- Campo de Contraseña -->
+      <input type="password" [(ngModel)]="password" name="password" placeholder="Contraseña" class="w-full p-2 mb-4 border rounded-lg" />
+      <button 
+        type="submit"
+        class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700"
+      >
+        Crear Evento
+      </button>
+    </form>
+    
+  </div>
+
+  <!-- Contraseña para Eliminar Evento -->
+  <div *ngIf="showPasswordField" class="mt-4">
+    <label for="password" class="text-lg font-medium">Ingrese la contraseña</label>
+    <input 
+      type="password" 
+      id="password" 
+      [(ngModel)]="password" 
+      class="px-4 py-2 border rounded-lg w-full"
+      placeholder="Contraseña"
+    />
+    <button 
+      (click)="confirmDelete()" 
+      class="mt-4 bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700"
+    >
+      Eliminar Evento
+    </button>
+    <button 
+      (click)="cancelDelete()" 
+      class="mt-4 bg-gray-600 text-white py-2 px-4 rounded-lg hover:bg-gray-700"
+    >
+      Cancelar
+    </button>
+  </div>
+</div>
