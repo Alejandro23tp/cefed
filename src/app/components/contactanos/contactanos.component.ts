@@ -21,7 +21,8 @@ export class ContactanosComponent {
   constructor(private http: HttpClient) {}
 
   enviarMensaje() {
-    const url = 'http://localhost:3000/api/telegram/contact';
+    //const url = 'http://localhost:3000/api/telegram/contact';
+    const url = 'https://cefedapi-arpx.onrender.com/api/telegram/contact';
     this.http.post(url, this.formData).subscribe(
       response => {
         alert('Mensaje enviado');
