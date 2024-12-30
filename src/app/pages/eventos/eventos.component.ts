@@ -101,6 +101,8 @@ export default class EventosComponent implements OnInit {
     }
   }
 
+  
+
   // Función para eliminar el evento
   async deleteEvent(id: number) {
     try {

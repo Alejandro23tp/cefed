@@ -8,7 +8,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: {"50":"#eff6ff","100":"#dbeafe","200":"#bfdbfe","300":"#93c5fd","400":"#60a5fa","500":"#3b82f6","600":"#2563eb","700":"#1d4ed8","800":"#1e40af","900":"#1e3a8a","950":"#172554"}
+        primary: {"50":"#eff6ff","100":"#dbeafe","200":"#bfdbfe","300":"#93c5fd","400":"#60a5fa","500":"#3b82f6","600":"#2563eb","700":"#1d4ed8","800":"#1e40af","900":"#1e3a8a","950":"#172554"},
+        custom: {dark1: '#000505', 
+                dark2: '#02020A', 
+        medium: '#030027', 
+        light: '#151E3F',
+        extraLight: '#0B2545',
+        dark: '#000000',
+      },
       }
     },
     fontFamily: {
