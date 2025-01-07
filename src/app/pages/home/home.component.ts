@@ -19,7 +19,7 @@ export default class HomeComponent implements OnInit {
   }
 
   iniciarServidor_API() {
-    const url = 'https://cefedapi-arpx.onrender.com/api/';
+    const url = 'https://cefedapi-arpx.onrender.com/';
     this.http.get(url).subscribe(
       response => {
         console.log(response);
