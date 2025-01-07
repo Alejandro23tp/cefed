@@ -121,22 +121,22 @@ export default class EventosComponent implements OnInit {
     this.imageFile = event.target.files[0];
   }
 
-// Función para extraer las categorías y agregar categorías adicionales
-extractCategories() {
-  const extraCategories = ['Retiros', 'Evangelismo', 'Adoración']; // Categorías adicionales
-  const allCategories = [
-    'Todos', // Aseguramos que "Todos" esté primero
-    ...new Set([
-      ...this.events.map(event => event.category), // Extrae categorías de los eventos
-      ...extraCategories // Agrega las categorías adicionales
-    ])
-  ];
-
-  return allCategories.map((category, index) => ({
-    id: index + 1,
-    name: category
-  }));
-}
+  extractCategories() {
+    const extraCategories = ['Retiros', 'Evangelismo', 'Adoración']; // Categorías adicionales
+    const allCategories = [
+      ...new Set([
+        'Todos', // Garantizamos que "Todos" siempre esté presente
+        ...this.events.map(event => event.category), // Extrae categorías únicas de los eventos
+        ...extraCategories // Agrega categorías adicionales
+      ])
+    ];
+  
+    return allCategories.map((category, index) => ({
+      id: index + 1,
+      name: category
+    }));
+  }
+  
 
 
 
