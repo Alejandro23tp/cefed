@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { toast } from 'ngx-sonner';
 
 
 @Component({
@@ -24,11 +25,13 @@ export class ContactanosComponent {
     //const url = 'http://localhost:3000/api/telegram/contact';
     const url = 'https://cefedapi-arpx.onrender.com/api/telegram/contact';
     this.http.post(url, this.formData).subscribe(
-      response => {
-        alert('Mensaje enviado');
-      },
-      error => {
-        alert('Hubo un error al enviar el mensaje: ' + error.message);
+      {
+        next: (data) => {
+          toast.success('Mensaje enviado');
+        },
+        error: (error) => {
+          toast.error('Hubo un error al enviar el mensaje: ' + error.message);
+        }
       }
     );
   }
