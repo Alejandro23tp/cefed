@@ -28,11 +28,20 @@ export class ContactanosComponent {
       {
         next: (data) => {
           toast.success('Mensaje enviado');
+          this.resetForm();
         },
         error: (error) => {
           toast.error('Hubo un error al enviar el mensaje: ' + error.message);
         }
       }
     );
+  }
+
+  resetForm() { 
+    this.formData = { 
+      nombre: '', 
+      correo: '', 
+      telefono: '',
+      mensaje: '' }; 
   }
 }
