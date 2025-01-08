@@ -92,8 +92,8 @@
             </div>
           </div>
           <button class="w-full bg-blue-600 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-all">
-            Más Información <i class="fas fa-chevron-right ml-2"></i>
-          </button>
+            Ver <i class="fas fa-chevron-right ml-2"></i>
+          </button>          
         </div>
       </div>
     </section>
@@ -126,6 +126,13 @@
       <button type="submit" style="background: #2563eb; color: white; padding: 0.75rem; border-radius: 0.5rem; transition: background-color 0.3s;">
         Crear Evento
       </button>
+      <button
+      type="button"
+      (click)="cancelCreateEvent()"
+      style="background: #4B5563; color: white; padding: 0.75rem; border-radius: 0.5rem; transition: background-color 0.3s;">
+      Cancelar
+    </button>
+    
     </form>
   </section>
 

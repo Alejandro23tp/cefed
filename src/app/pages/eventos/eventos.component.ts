@@ -23,6 +23,8 @@ export default class EventosComponent implements OnInit {
   showEventForm: boolean = false;
   password: string = '';
   eventToDeleteId: number | null = null;
+  fullScreenImageUrl: string | null = null; // Nueva propiedad para imagen a pantalla completa
+
 
   private eventsService = inject(EventsService);
 
@@ -34,6 +36,22 @@ export default class EventosComponent implements OnInit {
   // Función para mostrar el formulario de creación de evento
   showCreateEventForm() {
     this.showEventForm = true;
+  }
+
+  // Ocultar formulario de creación de evento
+  cancelCreateEvent() {
+    this.showEventForm = false;
+    this.newEvent = { id: null, title: '', date: '', time: '', location: '', category: '', image: null, description: '' };
+  }
+
+  // Mostrar imagen en tamaño completo
+  showFullScreenImage(imageUrl: string) {
+    this.fullScreenImageUrl = imageUrl;
+  }
+
+  // Cerrar la imagen en tamaño completo
+  closeFullScreenImage() {
+    this.fullScreenImageUrl = null;
   }
 
   // Función para crear un evento
