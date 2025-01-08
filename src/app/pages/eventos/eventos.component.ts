@@ -44,10 +44,18 @@ export default class EventosComponent implements OnInit {
     this.newEvent = { id: null, title: '', date: '', time: '', location: '', category: '', image: null, description: '' };
   }
 
-  // Mostrar imagen en tamaño completo
-  showFullScreenImage(imageUrl: string) {
-    this.fullScreenImageUrl = imageUrl;
+  modalImageUrl: string | null = null;
+
+  // Mostrar la imagen en el modal
+  showModal(imageUrl: string) {
+    this.modalImageUrl = imageUrl; // Asigna la URL de la imagen al modal
   }
+  
+  // Cerrar el modal
+  closeModal() {
+    this.modalImageUrl = null; // Limpia la URL para ocultar el modal
+  }
+  
 
   // Cerrar la imagen en tamaño completo
   closeFullScreenImage() {

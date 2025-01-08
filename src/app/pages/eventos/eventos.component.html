@@ -64,6 +64,7 @@
     </section>
 
 <!-- Sección 3: Grid de Eventos -->
+<!-- Contenedor de la tarjeta -->
 <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
   <div *ngFor="let event of filteredEvents" class="bg-gradient-to-b from-gray-800 to-gray-900 rounded-lg overflow-hidden shadow-lg transition-all text-white">
     <div class="relative">
@@ -91,15 +92,28 @@
           <span>{{ event.location }}</span>
         </div>
       </div>
-      <!-- Botón "Ver" para abrir la imagen -->
+      <!-- Botón para abrir el modal -->
       <button
         class="w-full bg-blue-600 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-all"
-        (click)="showFullScreenImage('https://cefedapi-arpx.onrender.com' + event.image)">
+        (click)="showModal('https://cefedapi-arpx.onrender.com' + event.image)">
         Ver <i class="fas fa-chevron-right ml-2"></i>
       </button>
     </div>
   </div>
 </section>
+
+<!-- Modal para mostrar la imagen -->
+<div *ngIf="modalImageUrl" class="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
+  <div class="relative bg-white rounded-lg shadow-lg p-4 max-w-md w-full">
+    <button
+      (click)="closeModal()"
+      class="absolute top-2 right-2 text-black text-2xl p-1 bg-gray-200 rounded-full hover:bg-gray-300">
+      &times;
+    </button>
+    <img [src]="modalImageUrl" alt="Imagen del evento" class="w-full rounded-lg">
+  </div>
+</div>
+
 
 <!-- Contenedor para la imagen a pantalla completa -->
 <div *ngIf="fullScreenImageUrl" class="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50">
