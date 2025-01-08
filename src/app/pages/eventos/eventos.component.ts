@@ -175,5 +175,16 @@ export default class EventosComponent implements OnInit {
     }
   }
 
+  // Nueva función para manejar el botón "Ver"
+viewEvent(event: Event) {
+  // Aquí puedes decidir qué acción realizar:
+  // Opción 1: Redirigir a una página específica del evento
+  console.log('Ver evento:', event);
+  alert(`Detalles del evento:\n\nTítulo: ${event.title}\nDescripción: ${event.description}\nFecha: ${event.date}\nHora: ${event.time}\nLugar: ${event.location}`);
+  
+  // Opción 2: Implementar un modal si quieres mostrar la información en la misma página
+  // this.fullScreenImageUrl = event.image;
+  // También podrías usar alguna librería como Angular Material Dialog o Bootstrap Modal
+}
 
 }

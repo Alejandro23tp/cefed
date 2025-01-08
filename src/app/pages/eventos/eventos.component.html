@@ -63,41 +63,55 @@
       </button>
     </section>
 
-    <!-- Sección 3: Grid de Eventos -->
-    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div *ngFor="let event of filteredEvents" class="bg-gradient-to-b from-gray-800 to-gray-900 rounded-lg overflow-hidden shadow-lg transition-all text-white">
-        <div class="relative">
-          <img [src]="'https://cefedapi-arpx.onrender.com' + event.image" [alt]="event.title" class="w-full h-48 object-cover transition-transform">
-          <div class="absolute top-4 right-4">
-            <button (click)="event.id !== null ? showDeletePassword(event.id) : null" class="p-2 bg-gray-900 rounded-full shadow-md">
-              <i class="fas fa-trash-alt text-white"></i>
-            </button>
-          </div>
+<!-- Sección 3: Grid de Eventos -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div *ngFor="let event of filteredEvents" class="bg-gradient-to-b from-gray-800 to-gray-900 rounded-lg overflow-hidden shadow-lg transition-all text-white">
+    <div class="relative">
+      <img [src]="'https://cefedapi-arpx.onrender.com' + event.image" [alt]="event.title" class="w-full h-48 object-cover transition-transform">
+      <div class="absolute top-4 right-4">
+        <button (click)="event.id !== null ? showDeletePassword(event.id) : null" class="p-2 bg-gray-900 rounded-full shadow-md">
+          <i class="fas fa-trash-alt text-white"></i>
+        </button>
+      </div>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold mb-4">{{ event.title }}</h3>
+      <p class="text-gray-400 mb-4">{{ event.description }}</p>
+      <div class="mb-4 text-sm">
+        <div class="flex items-center mb-2">
+          <i class="fas fa-calendar text-blue-500 mr-2"></i>
+          <span>{{ event.date }}</span>
         </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-4">{{ event.title }}</h3>
-          <p class="text-gray-400 mb-4">{{ event.description }}</p>
-          <div class="mb-4 text-sm">
-            <div class="flex items-center mb-2">
-              <i class="fas fa-calendar text-blue-500 mr-2"></i>
-              <span>{{ event.date }}</span>
-            </div>
-            <div class="flex items-center mb-2">
-              <i class="fas fa-clock text-blue-500 mr-2"></i>
-              <span>{{ event.time }}</span>
-            </div>
-            <div class="flex items-center">
-              <i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>
-              <span>{{ event.location }}</span>
-            </div>
-          </div>
-          <button class="w-full bg-blue-600 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-all">
-            Ver <i class="fas fa-chevron-right ml-2"></i>
-          </button>          
+        <div class="flex items-center mb-2">
+          <i class="fas fa-clock text-blue-500 mr-2"></i>
+          <span>{{ event.time }}</span>
+        </div>
+        <div class="flex items-center">
+          <i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>
+          <span>{{ event.location }}</span>
         </div>
       </div>
-    </section>
+      <!-- Botón "Ver" para abrir la imagen -->
+      <button
+        class="w-full bg-blue-600 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-all"
+        (click)="showFullScreenImage('https://cefedapi-arpx.onrender.com' + event.image)">
+        Ver <i class="fas fa-chevron-right ml-2"></i>
+      </button>
+    </div>
   </div>
+</section>
+
+<!-- Contenedor para la imagen a pantalla completa -->
+<div *ngIf="fullScreenImageUrl" class="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50">
+  <div class="relative">
+    <img [src]="fullScreenImageUrl" alt="Imagen completa" class="max-w-full max-h-full">
+    <button
+      (click)="closeFullScreenImage()"
+      class="absolute top-4 right-4 text-white text-2xl p-2 bg-gray-900 rounded-full shadow-md">
+      &times;
+    </button>
+  </div>
+</div>
 
   <!-- Sección 4: Botón para Crear Evento -->
   <section class="py-8 text-center">
