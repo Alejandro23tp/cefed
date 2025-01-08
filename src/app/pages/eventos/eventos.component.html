@@ -107,4 +107,40 @@
       Crear Evento
     </button>
   </section>
+
+  <!-- Sección 5: Formulario para Crear Evento -->
+  <section *ngIf="showEventForm" style="margin: 2rem 0; padding: 2rem; width: 100%; max-width: 800px; background: linear-gradient(to bottom, #1f2937, #111827); border-radius: 1rem;">
+    <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem; color: white;">Nuevo Evento</h2>
+    <form (ngSubmit)="createEvent()" style="display: flex; flex-direction: column; gap: 1rem;">
+      <input [(ngModel)]="newEvent.title" name="title" placeholder="Título" style="padding: 0.5rem; border-radius: 0.5rem; border: none; background: #374151; color: white;" />
+      <input [(ngModel)]="newEvent.date" name="date" type="date" style="padding: 0.5rem; border-radius: 0.5rem; border: none; background: #374151; color: white;" />
+      <input [(ngModel)]="newEvent.time" name="time" type="time" style="padding: 0.5rem; border-radius: 0.5rem; border: none; background: #374151; color: white;" />
+      <select [(ngModel)]="newEvent.category" name="category" style="padding: 0.5rem; border-radius: 0.5rem; border: none; background: #374151; color: white;">
+        <option value="" disabled selected>Selecciona una categoría</option>
+        <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
+      </select>
+      <input [(ngModel)]="newEvent.location" name="location" placeholder="Ubicación" style="padding: 0.5rem; border-radius: 0.5rem; border: none; background: #374151; color: white;" />
+      <textarea [(ngModel)]="newEvent.description" name="description" placeholder="Descripción" style="padding: 0.5rem; border-radius: 0.5rem; border: none; background: #374151; color: white;"></textarea>
+      <input type="file" (change)="onFileChange($event)" style="padding: 0.5rem; border-radius: 0.5rem; background: #374151; color: white;" />
+      <input type="password" [(ngModel)]="password" name="password" placeholder="Contraseña" style="padding: 0.5rem; border-radius: 0.5rem; border: none; background: #374151; color: white;" />
+      <button type="submit" style="background: #2563eb; color: white; padding: 0.75rem; border-radius: 0.5rem; transition: background-color 0.3s;">
+        Crear Evento
+      </button>
+    </form>
+  </section>
+
+  <!-- Sección 6: Contraseña de Eliminación -->
+<!-- Sección de confirmación de eliminación con contraseña -->
+<section *ngIf="showPasswordField" style="margin-top: 1rem; padding: 1.5rem; text-align: center; background: #1f2937; border-radius: 0.5rem;">
+  <h2 style="font-size: 1.25rem; font-weight: bold; color: white;">Confirmar eliminación</h2>
+  <input [(ngModel)]="password" name="password" type="password" placeholder="Contraseña de administrador" style="padding: 0.5rem; border-radius: 0.5rem; border: none; background: #374151; color: white;" />
+  <button (click)="confirmDelete()" style="background: #e11d48; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; transition: background-color 0.3s;">
+    Eliminar
+  </button>
+
+  <!-- Botón para cancelar la eliminación -->
+  <button (click)="cancelDelete()" style="background: #4B5563; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; transition: background-color 0.3s; margin-left: 1rem;">
+    Cancelar
+  </button>
+</section>
 </div>
