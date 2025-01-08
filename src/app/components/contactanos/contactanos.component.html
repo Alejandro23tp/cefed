@@ -1,14 +1,14 @@
 <!-- Sección de Contacto con Tarjeta Flotante -->
 <section class="py-12 bg-gradient-to-b from-custom-light to-custom-medium">
     <div class="max-w-screen-xl mx-auto px-4">
-        <h2 class="text-3xl font-extrabold leading-tight text-center text-gray-900 dark:text-white">Escríbenos</h2>
-        <p class="text-lg text-center text-gray-600 dark:text-gray-300 mb-6">Si tienes alguna pregunta o necesitas oración, no dudes en contactarnos.</p>
+        <h2 class="flex justify-center text-3xl font-extrabold leading-tight text-white">Escríbenos</h2>
+        <p class="text-lg text-center text-gray-300 mb-6">Si tienes alguna pregunta o necesitas oración, no dudes en contactarnos.</p>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <form class="space-y-4 bg-custom-medium p-6 rounded-lg shadow-xl" (ngSubmit)="enviarMensaje()">
                 <input 
                     type="text" 
                     placeholder="Nombre *" 
-                    class="w-full px-4 py-2 rounded-lg focus:outline-none border border-gray-300 dark:border-gray-600" 
+                    class="w-full px-4 py-2 rounded-lg focus:outline-none border border-gray-600" 
                     [(ngModel)]="formData.nombre" 
                     name="nombre" 
                     required>
@@ -16,7 +16,7 @@
                 <input 
                     type="email" 
                     placeholder="Correo *" 
-                    class="w-full px-4 py-2 rounded-lg focus:outline-none border border-gray-300 dark:border-gray-600" 
+                    class="w-full px-4 py-2 rounded-lg focus:outline-none border border-gray-600" 
                     [(ngModel)]="formData.correo" 
                     name="correo" 
                     required>
@@ -24,14 +24,14 @@
                 <input 
                     type="tel" 
                     placeholder="Número de teléfono *" 
-                    class="w-full px-4 py-2 rounded-lg focus:outline-none border border-gray-300 dark:border-gray-600" 
+                    class="w-full px-4 py-2 rounded-lg focus:outline-none border border-gray-600" 
                     [(ngModel)]="formData.telefono" 
                     name="telefono" 
                     required>
                 
                 <textarea 
                     placeholder="Mensaje *" 
-                    class="w-full px-4 py-2 rounded-lg focus:outline-none border border-gray-300 dark:border-gray-600" 
+                    class="w-full px-4 py-2 rounded-lg focus:outline-none border border-gray-600" 
                     [(ngModel)]="formData.mensaje" 
                     name="mensaje" 
                     required>
@@ -45,13 +45,13 @@
             </form>
             <div class="flex flex-col space-y-4 justify-center bg-custom-medium p-6 rounded-lg shadow-xl">
                 <div class="text-center">
-                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">Contáctanos</h3>
-                    <p class="text-lg text-gray-600 dark:text-gray-300">Centro Evangelístico Fe en Dios</p>
-                    <p class="text-lg text-gray-600 dark:text-gray-300">Salinas, Ecuador</p>
+                    <h3 class="text-2xl font-semibold text-white">Contáctanos</h3>
+                    <p class="text-lg text-gray-300">Centro Evangelístico Fe en Dios</p>
+                    <p class="text-lg text-gray-300">Salinas, Ecuador</p>
                 </div>
                 <div class="text-center">
-                    <p class="text-lg text-gray-600 dark:text-gray-300">Email: <a href="mailto:iglesiacefed.info@gmail.com" class="text-primary-800 dark:text-primary-300">CEFED INFO</a></p>
-                    <p class="text-lg text-gray-600 dark:text-gray-300">Teléfono: +593 93 944 2125</p>
+                    <p class="text-lg text-gray-300">Email: <a href="mailto:iglesiacefed.info@gmail.com" class="text-primary-300">CEFED INFO</a></p>
+                    <p class="text-lg text-gray-300">Teléfono: +593 93 944 2125</p>
                 </div>
                 <div class="mt-4">
                     <div class="relative h-96">
