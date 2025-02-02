@@ -1,4 +1,5 @@
 import { Routes } from "@angular/router";
+import { EventosCdComponent } from "./eventos-cd/eventos-cd.component";
 
 export const routes : Routes = [
     {
@@ -30,6 +31,11 @@ export const routes : Routes = [
                 path: 'eventos',
                 loadComponent: () => import('./eventos/eventos.component'),
             },
+            {
+                path: 'eventos-cdcefed',
+                component: EventosCdComponent,
+            }
+            ,
             {
                 path: 'contacto',
                 loadComponent: () => import('./contacto/contacto.component'),

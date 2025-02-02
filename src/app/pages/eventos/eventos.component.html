@@ -1,186 +1,110 @@
 <div style="min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; background: linear-gradient(to bottom, #030027, #151E3F); color: white;">
   <section class="relative w-full h-[500px]">
-    <!-- Imagen de fondo -->
     <div class="absolute top-0 left-0 w-full h-full">
-      <img 
-        src="/imagenes/bannereventos.webp" 
-        alt="Eventos" 
-        class="w-full h-full object-cover"
-      />
+      <img src="/imagenes/bannereventos.webp" alt="Eventos" class="w-full h-full object-cover"/>
     </div>
-    <!-- Filtro oscuro sobre la imagen -->
     <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40"></div>
-  
-    <!-- Nota en la parte inferior izquierda -->
-<div class="absolute bottom-4 left-4 w-auto px-4">
-  <!-- Contenedor grande para pantallas grandes -->
-  <div 
-    class="bg-white bg-opacity-70 p-6 rounded-lg shadow-lg text-left 
-           lg:block hidden max-w-sm">
-    <h3 class="text-xl font-bold text-blue-700 mb-2">Eventos</h3>
-    <p class="text-gray-700 mb-2 leading-relaxed">
-      "Donde dos o tres se reúnen en mi nombre, allí estoy yo en medio de ellos." 
-      <span class="italic">Mateo 18:20</span>
-    </p>
-    <!-- Enlace a Facebook -->
-    <a 
-      href="https://www.facebook.com/permalink.php?story_fbid=pfbid02ypuT9yegbYVZbnahZAcyiYeFq4tPeWSzgeeFqrKHZgjLg88XdB6mTcNDLV7b6Hg8l&id=100008719060212" 
-      target="_blank" 
-      class="inline-block bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-800 transition-all">
-      Ir a Facebook
-    </a>
-  </div>
+    
+    <div class="absolute bottom-4 left-4 w-auto px-4">
+      <div class="bg-white bg-opacity-70 p-6 rounded-lg shadow-lg text-left lg:block hidden max-w-sm">
+        <h3 class="text-xl font-bold text-blue-700 mb-2">Eventos</h3>
+        <p class="text-gray-700 mb-2 leading-relaxed">
+          "Donde dos o tres se reúnen en mi nombre, allí estoy yo en medio de ellos." 
+          <span class="italic">Mateo 18:20</span>
+        </p>
+        <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02ypuT9yegbYVZbnahZAcyiYeFq4tPeWSzgeeFqrKHZgjLg88XdB6mTcNDLV7b6Hg8l&id=100008719060212" target="_blank" 
+           class="inline-block bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-800 transition-all">
+          Ir a Facebook
+        </a>
+      </div>
 
-  <!-- Contenido simplificado para móviles -->
-  <div 
-    class="bg-white bg-opacity-80 p-2 rounded-lg shadow-md text-left 
-           lg:hidden max-w-xs flex flex-col items-start">
-    <h3 class="text-lg font-bold text-blue-700 mb-1">Eventos</h3>
-    <p class="text-gray-700 mb-2 leading-relaxed">
-      "Donde dos o tres se reúnen en mi nombre, allí estoy yo en medio de ellos."
-      <span class="italic">Mateo 18:20</span>
-    </p>
-    <a 
-      href="https://www.facebook.com/profile.php?id=100008719060212" 
-      target="_blank" 
-      class="bg-blue-600 text-white px-3 py-1 rounded-full text-xs hover:bg-blue-700">
-      Más Info
-    </a>
-  </div>
-</div>
+      <div class="bg-white bg-opacity-80 p-2 rounded-lg shadow-md text-left lg:hidden max-w-xs flex flex-col items-start">
+        <h3 class="text-lg font-bold text-blue-700 mb-1">Eventos</h3>
+        <p class="text-gray-700 mb-2 leading-relaxed">
+          "Donde dos o tres se reúnen en mi nombre, allí estoy yo en medio de ellos."
+          <span class="italic">Mateo 18:20</span>
+        </p>
+        <a href="https://www.facebook.com/profile.php?id=100008719060212" target="_blank" class="bg-blue-600 text-white px-3 py-1 rounded-full text-xs hover:bg-blue-700">
+          Más Info
+        </a>
+      </div>
+    </div>
   </section>
 
-  <!-- Sección 2: Filtros de Categoría -->
   <div class="py-8 w-full px-4 lg:px-16">
     <section class="flex gap-4 overflow-x-auto flex-wrap justify-center mb-8">
       <button *ngFor="let category of categories" (click)="setSelectedCategory(category.id)"
-        class="py-2 px-6 rounded-full transition-all text-sm font-semibold  shadow-lg hover:shadow-xl transform"
-        [ngStyle]="{
-          'background-color': selectedCategory === category.id ? '#2563eb' : '#1f2937', 
-          'color': selectedCategory === category.id ? '#ffffff' : '#d1d5db',
-          'border': selectedCategory === category.id ? '2px solid #1d4ed8' : '2px solid #4b5563',
-          'box-shadow': selectedCategory === category.id ? '0 4px 6px rgba(0, 0, 0, 0.1)' : '0 2px 4px rgba(0, 0, 0, 0.1)',
-          'height': 'auto'
-        }">
+              class="py-2 px-6 rounded-full transition-all text-sm font-semibold shadow-lg hover:shadow-xl transform"
+              [ngStyle]="{
+                'background-color': selectedCategory === category.id ? '#2563eb' : '#1f2937', 
+                'color': selectedCategory === category.id ? '#ffffff' : '#d1d5db',
+                'border': selectedCategory === category.id ? '2px solid #1d4ed8' : '2px solid #4b5563',
+                'box-shadow': selectedCategory === category.id ? '0 4px 6px rgba(0, 0, 0, 0.1)' : '0 2px 4px rgba(0, 0, 0, 0.1)',
+                'height': 'auto'
+              }">
         {{ category.name }}
       </button>
     </section>
 
+    <section class="w-full px-4 lg:px-8">
+      <div *ngFor="let event of filteredEvents" 
+           class="bg-gray-800 rounded-lg shadow-lg mb-4 p-4 flex flex-col md:flex-row items-center hover:shadow-xl transition-all duration-300 md:w-2/3 lg:w-1/2 xl:w-1/3">
+        <img [src]="'https://cefedapi-arpx.onrender.com' + event.image" 
+             [alt]="event.title" 
+             class="w-48 h-48 object-cover rounded-lg mb-4 md:mb-0 md:mr-4">
+        <div class="flex-1">
+          <h3 class="text-xl font-bold text-white mb-1">{{ event.title }}</h3>
+          <div class="text-sm text-gray-300 space-y-1">
+            <div class="flex items-center">
+              <i class="fas fa-calendar text-blue-400 mr-1"></i>
+              <span>{{ event.date }}</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-clock text-blue-400 mr-1"></i>
+              <span>{{ event.time }}</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-map-marker-alt text-blue-400 mr-1"></i>
+              <span>{{ event.location }}</span>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-2">
+            <button (click)="openEventModal(event)" 
+                    class="bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded text-xs font-semibold transition-all">
+              Ver Detalles
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
 
-
-<!-- Sección 3: Grid de Eventos -->
-<!-- Contenedor de la tarjeta -->
-<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-  <div *ngFor="let event of filteredEvents" class="bg-gradient-to-b from-gray-800 to-gray-900 rounded-lg overflow-hidden shadow-lg transition-all text-white">
-    <div class="relative">
-      <img [src]="'https://cefedapi-arpx.onrender.com' + event.image" [alt]="event.title" class="w-full h-48 object-cover transition-transform">
-      <div class="absolute top-4 right-4">
-        <button (click)="event.id !== null ? showDeletePassword(event.id) : null" class="p-2 bg-gray-900 rounded-full shadow-md">
-          <i class="fas fa-trash-alt text-white"></i>
+    <div *ngIf="selectedEvent" 
+         class="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
+      <div class="relative bg-gray-800 rounded-lg shadow-lg p-4 w-10/12 max-w-sm">
+        <button (click)="closeEventModal()" 
+                class="absolute top-2 right-2 text-white text-xl p-1 bg-gray-700 rounded-full hover:bg-gray-600 transition-all">
+          &times;
         </button>
+        <img [src]="'https://cefedapi-arpx.onrender.com' + selectedEvent.image" 
+             alt="Imagen del evento" 
+             class="w-full rounded-lg mb-2">
+        <h3 class="text-lg font-bold text-white mb-2">{{ selectedEvent.title }}</h3>
+        <p class="text-sm text-gray-400 mb-2">{{ selectedEvent.description }}</p>
+        <div class="text-xs text-gray-300 space-y-1">
+          <div class="flex items-center">
+            <i class="fas fa-calendar text-blue-400 mr-1"></i>
+            <span>{{ selectedEvent.date }}</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-clock text-blue-400 mr-1"></i>
+            <span>{{ selectedEvent.time }}</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-map-marker-alt text-blue-400 mr-1"></i>
+            <span>{{ selectedEvent.location }}</span>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="p-6">
-      <h3 class="text-xl font-bold mb-4">{{ event.title }}</h3>
-      <p class="text-gray-400 mb-4">{{ event.description }}</p>
-      <div class="mb-4 text-sm">
-        <div class="flex items-center mb-2">
-          <i class="fas fa-calendar text-blue-500 mr-2"></i>
-          <span>{{ event.date }}</span>
-        </div>
-        <div class="flex items-center mb-2">
-          <i class="fas fa-clock text-blue-500 mr-2"></i>
-          <span>{{ event.time }}</span>
-        </div>
-        <div class="flex items-center">
-          <i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>
-          <span>{{ event.location }}</span>
-        </div>
-      </div>
-      <!-- Botón para abrir el modal -->
-      <button
-        class="w-full bg-blue-600 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-all"
-        (click)="showModal('https://cefedapi-arpx.onrender.com' + event.image)">
-        Ver <i class="fas fa-chevron-right ml-2"></i>
-      </button>
-    </div>
   </div>
-</section>
-
-<!-- Modal para mostrar la imagen -->
-<div *ngIf="modalImageUrl" class="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
-  <div class="relative bg-white rounded-lg shadow-lg p-4 max-w-md w-full">
-    <button
-      (click)="closeModal()"
-      class="absolute top-2 right-2 text-black text-2xl p-1 bg-gray-200 rounded-full hover:bg-gray-300">
-      &times;
-    </button>
-    <img [src]="modalImageUrl" alt="Imagen del evento" class="w-full rounded-lg">
-  </div>
-</div>
-
-
-<!-- Contenedor para la imagen a pantalla completa -->
-<div *ngIf="fullScreenImageUrl" class="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50">
-  <div class="relative">
-    <img [src]="fullScreenImageUrl" alt="Imagen completa" class="max-w-full max-h-full">
-    <button
-      (click)="closeFullScreenImage()"
-      class="absolute top-4 right-4 text-white text-2xl p-2 bg-gray-900 rounded-full shadow-md">
-      &times;
-    </button>
-  </div>
-</div>
-
-  <!-- Sección 4: Botón para Crear Evento -->
-  <section class="py-8 text-center">
-    <button
-      (click)="showCreateEventForm()"
-      class="bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-all">
-      Crear Evento
-    </button>
-  </section>
-
-  <!-- Sección 5: Formulario para Crear Evento -->
-  <section *ngIf="showEventForm" style="margin: 2rem 0; padding: 2rem; width: 100%; max-width: 800px; background: linear-gradient(to bottom, #1f2937, #111827); border-radius: 1rem;">
-    <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem; color: white;">Nuevo Evento</h2>
-    <form (ngSubmit)="createEvent()" style="display: flex; flex-direction: column; gap: 1rem;">
-      <input [(ngModel)]="newEvent.title" name="title" placeholder="Título" style="padding: 0.5rem; border-radius: 0.5rem; border: none; background: #374151; color: white;" />
-      <input [(ngModel)]="newEvent.date" name="date" type="date" style="padding: 0.5rem; border-radius: 0.5rem; border: none; background: #374151; color: white;" />
-      <input [(ngModel)]="newEvent.time" name="time" type="time" style="padding: 0.5rem; border-radius: 0.5rem; border: none; background: #374151; color: white;" />
-      <select [(ngModel)]="newEvent.category" name="category" style="padding: 0.5rem; border-radius: 0.5rem; border: none; background: #374151; color: white;">
-        <option value="" disabled selected>Selecciona una categoría</option>
-        <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
-      </select>
-      <input [(ngModel)]="newEvent.location" name="location" placeholder="Ubicación" style="padding: 0.5rem; border-radius: 0.5rem; border: none; background: #374151; color: white;" />
-      <textarea [(ngModel)]="newEvent.description" name="description" placeholder="Descripción" style="padding: 0.5rem; border-radius: 0.5rem; border: none; background: #374151; color: white;"></textarea>
-      <input type="file" (change)="onFileChange($event)" style="padding: 0.5rem; border-radius: 0.5rem; background: #374151; color: white;" />
-      <input type="password" [(ngModel)]="password" name="password" placeholder="Contraseña" style="padding: 0.5rem; border-radius: 0.5rem; border: none; background: #374151; color: white;" />
-      <button type="submit" style="background: #2563eb; color: white; padding: 0.75rem; border-radius: 0.5rem; transition: background-color 0.3s;">
-        Crear Evento
-      </button>
-      <button
-      type="button"
-      (click)="cancelCreateEvent()"
-      style="background: #4B5563; color: white; padding: 0.75rem; border-radius: 0.5rem; transition: background-color 0.3s;">
-      Cancelar
-    </button>
-    
-    </form>
-  </section>
-
-  <!-- Sección 6: Contraseña de Eliminación -->
-<!-- Sección de confirmación de eliminación con contraseña -->
-<section *ngIf="showPasswordField" style="margin-top: 1rem; padding: 1.5rem; text-align: center; background: #1f2937; border-radius: 0.5rem;">
-  <h2 style="font-size: 1.25rem; font-weight: bold; color: white;">Confirmar eliminación</h2>
-  <input [(ngModel)]="password" name="password" type="password" placeholder="Contraseña de administrador" style="padding: 0.5rem; border-radius: 0.5rem; border: none; background: #374151; color: white;" />
-  <button (click)="confirmDelete()" style="background: #e11d48; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; transition: background-color 0.3s;">
-    Eliminar
-  </button>
-
-  <!-- Botón para cancelar la eliminación -->
-  <button (click)="cancelDelete()" style="background: #4B5563; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; transition: background-color 0.3s; margin-left: 1rem;">
-    Cancelar
-  </button>
-</section>
 </div>
