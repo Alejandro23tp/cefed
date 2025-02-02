@@ -64,13 +64,13 @@ export default class MnComponent {
   public openModal(imageSrc: string): void {
     if (this.modalElement && this.modalImageElement) {
       this.modalImageElement.src = imageSrc; // Configurar imagen en el modal
-      this.modalElement.classList.remove('hidden'); // Mostrar modal
+      this.modalElement.style.display = 'flex'; // Mostrar modal
     }
   }
 
   public closeModal(): void {
     if (this.modalElement) {
-      this.modalElement.classList.add('hidden'); // Ocultar modal
+      this.modalElement.style.display = 'none'; // Ocultar modal
     }
   }
 }

@@ -54,14 +54,19 @@
   <div class="py-8 w-full px-4 lg:px-16">
     <section class="flex gap-4 overflow-x-auto flex-wrap justify-center mb-8">
       <button *ngFor="let category of categories" (click)="setSelectedCategory(category.id)"
-        class="py-2 px-6 rounded-full transition-all text-sm font-semibold"
+        class="py-2 px-6 rounded-full transition-all text-sm font-semibold  shadow-lg hover:shadow-xl transform"
         [ngStyle]="{
-          'background-color': selectedCategory === category.id ? '#2563eb' : '#374151',
-          'color': selectedCategory === category.id ? 'white' : '#d1d5db'
+          'background-color': selectedCategory === category.id ? '#2563eb' : '#1f2937', 
+          'color': selectedCategory === category.id ? '#ffffff' : '#d1d5db',
+          'border': selectedCategory === category.id ? '2px solid #1d4ed8' : '2px solid #4b5563',
+          'box-shadow': selectedCategory === category.id ? '0 4px 6px rgba(0, 0, 0, 0.1)' : '0 2px 4px rgba(0, 0, 0, 0.1)',
+          'height': 'auto'
         }">
         {{ category.name }}
       </button>
     </section>
+
+
 
 <!-- Sección 3: Grid de Eventos -->
 <!-- Contenedor de la tarjeta -->
