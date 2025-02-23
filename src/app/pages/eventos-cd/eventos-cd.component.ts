@@ -42,7 +42,7 @@ export class EventosCdComponent {
   // Ocultar formulario de creación de evento
   cancelCreateEvent() {
     this.showEventForm = false;
-    this.newEvent = { id: null, title: '', date: '', time: '', location: '', category: '', image: null, description: '' };
+    this.clearFields();
   }
 
   modalImageUrl: string | null = null;
@@ -83,7 +83,8 @@ export class EventosCdComponent {
           console.log('Nuevo evento creado:', response);
           this.events.push(response);
           this.filterEvents();
-          this.showEventForm = false; // Ocultar el formulario después de crear
+          this.showEventForm = false;
+          this.clearFields(); // Añadido aquí
         } catch (error) {
           console.error('Error creando el evento', error);
         }
@@ -204,4 +205,19 @@ viewEvent(event: Event) {
 closeEventModal() {
   this.selectedEvent = null;
 }
+
+  clearFields() {
+    this.newEvent = {
+      id: null,
+      title: '',
+      date: '',
+      time: '',
+      location: '',
+      category: '',
+      image: null,
+      description: ''
+    };
+    this.password = '';
+    this.imageFile = null;
+  }
 }
